@@ -1,0 +1,32 @@
+{
+  "name": "laraveldaily/quickadmin",
+  "description": "Package for creating adminpanel in Laravel 5",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ModestasV",
+      "email": "info@modestasv.lt"
+    },
+    {
+      "name": "PovilasKorop",
+      "email": "povilas@laraveldaily.com"
+    }
+  ],
+  "version": "2.1.1",
+  "require": {
+    "laravel/framework": "5.4.*",
+    "laravelcollective/html": "^5.4",
+    "intervention/image": "^2.3",
+    "yajra/laravel-datatables-oracle": "^6.18"
+  },
+  "classmap": [
+    "src/Controllers",
+    "src/Cache",
+    "src/Models"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Laraveldaily\\Quickadmin\\": "src/"
+    }
+  }
+}
