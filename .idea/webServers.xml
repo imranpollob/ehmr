@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a5c662f0-fcec-4c36-ae19-14c8e1261713" name="ehr-FTP" url="http://imranpollob.com">
+        <fileTransfer host="imranpollob.com" port="21" password="dfe6dfc3dfdcdfcfdfe3dfdedfffdfdadf9ddfffdfda" username="ehr@imranpollob.com">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" showHiddenFiles="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

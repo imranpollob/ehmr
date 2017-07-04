@@ -13,6 +13,7 @@
                 <table id="datatable" class="table table-striped table-hover table-responsive datatable">
                     <thead>
                         <tr>
+                            <th>Role ID</th>
                             <th>{{ trans('quickadmin::admin.roles-index-title') }}</th>
                             <th>&nbsp;</th>
                         </tr>
@@ -21,6 +22,7 @@
                     <tbody>
                         @foreach ($roles as $role)
                             <tr>
+                                <td>{{ $role->id }}</td>
                                 <td>{{ $role->title }}</td>
                                 <td>
                                     {!! link_to_route('roles.edit', trans('quickadmin::admin.roles-index-edit'), [$role->id], ['class' => 'btn btn-xs btn-info']) !!}
