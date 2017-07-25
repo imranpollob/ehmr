@@ -21,28 +21,32 @@
     <div class="form-group">
         {!! Form::label('patient_id', 'Patient*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('patient_id', old('patient_id'), array('class'=>'form-control')) !!}
+            {!! Form::select('patient_id', $patient, old('patient_id'),
+            array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
 
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('doctor_id', 'Doctor*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('doctor_id', old('doctor_id'), array('class'=>'form-control')) !!}
+            {!! Form::select('doctor_id', $doctor, old('doctor_id'),
+            array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
 
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('hospital_id', 'Hospital', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('hospital_id', old('hospital_id'), array('class'=>'form-control')) !!}
+            {!! Form::select('hospital_id', $hospital, old('hospital_id'),
+            array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
 
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('doctor_assistant_id', 'Doctor Assistant', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('doctor_assistant_id', old('doctor_assistant_id'), array('class'=>'form-control')) !!}
+            {!! Form::select('doctor_assistant_id', $assistant, old('doctor_assistant_id'),
+            array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
 
         </div>
     </div>

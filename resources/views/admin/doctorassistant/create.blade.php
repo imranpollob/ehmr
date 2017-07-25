@@ -13,6 +13,12 @@
                     </ul>
                 </div>
             @endif
+            @if(session()->has('warning'))
+                <div class="alert alert-danger">
+                    {!! session()->get('warning') !!}
+
+                </div>
+            @endif
         </div>
     </div>
 
@@ -35,28 +41,36 @@
     <div class="form-group">
         {!! Form::label('gender', 'Gender*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('gender', old('gender'), array('class'=>'form-control')) !!}
-
+            <label class="radio-inline">
+                {!! Form::radio('gender', '1', false, ['required']) !!} Male
+            </label>
+            <label class="radio-inline">
+                {!! Form::radio('gender', '2') !!} Female
+            </label>
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('is_married', 'Marital Status*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('is_married', old('is_married'), array('class'=>'form-control')) !!}
-
+            <label class="radio-inline">
+                {!! Form::radio('is_married', "1", false, ['required']) !!} Married
+            </label>
+            <label class="radio-inline">
+                {!! Form::radio('is_married', "2") !!} Unmarried
+            </label>
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('mobile', 'Mobile*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('mobile', old('mobile'), array('class'=>'form-control')) !!}
+            {!! Form::number('mobile', old('mobile'), array('class'=>'form-control')) !!}
 
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('alt_mobile', 'Alt. Mobile', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('alt_mobile', old('alt_mobile'), array('class'=>'form-control')) !!}
+            {!! Form::number('alt_mobile', old('alt_mobile'), array('class'=>'form-control')) !!}
 
         </div>
     </div>
@@ -70,21 +84,24 @@
     <div class="form-group">
         {!! Form::label('blood_group', 'Blood Group*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('blood_group', old('blood_group'), array('class'=>'form-control')) !!}
+            {!! Form::select('blood_group', $blood_group, old('blood_group'),
+            array('class'=>'form-control chosen', 'placeholder'=>'Please Select')) !!}
 
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('hospital_id', 'Hospital', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('hospital_id', old('hospital_id'), array('class'=>'form-control')) !!}
+            {!! Form::select('hospital_id', $hospital, old('hospital_id'),
+            array('class'=>'form-control chosen', 'placeholder'=>'Please Select')) !!}
 
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('doctor_id', 'Doctor*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('doctor_id', old('doctor_id'), array('class'=>'form-control')) !!}
+            {!! Form::select('doctor_id', $doctor, old('doctor_id'),
+            array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
 
         </div>
     </div>

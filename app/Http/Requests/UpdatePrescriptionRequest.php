@@ -27,8 +27,7 @@ class UpdatePrescriptionRequest extends FormRequest {
             'patient_id' => 'required', 
             'doctor_id' => 'required', 
             'document_id' => 'max:20480', 
-            'created_by' => 'required', 
-            
+
 		];
 	}
 }

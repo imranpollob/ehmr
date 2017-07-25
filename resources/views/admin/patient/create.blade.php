@@ -42,24 +42,30 @@
     <div class="form-group">
         {!! Form::label('gender', 'Gender*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::radio('gender', '1', true) !!} Male
-            {!! Form::radio('gender', '2') !!} Female
-
-
+            <label class="radio-inline">
+                {!! Form::radio('gender', '1', false, ['required']) !!} Male
+            </label>
+            <label class="radio-inline">
+                {!! Form::radio('gender', '2') !!} Female
+            </label>
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('is_married', 'Marital Status*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::radio('is_married', "1", true) !!} Married
-            {!! Form::radio('is_married', "2") !!} Unmarried
-
+            <label class="radio-inline">
+                {!! Form::radio('is_married', "1", false, ['required']) !!} Married
+            </label>
+            <label class="radio-inline">
+                {!! Form::radio('is_married', "2") !!} Unmarried
+            </label>
         </div>
     </div>
     <div class="form-group">
         {!! Form::label('blood_group', 'Blood Group*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::select('blood_group', $blood_group, old('blood_group'), array('class'=>'form-control')) !!}
+            {!! Form::select('blood_group', $blood_group, old('blood_group'),
+            array('class'=>'form-control chosen', 'placeholder'=>'Please Select', 'required')) !!}
 
         </div>
     </div>
@@ -80,7 +86,7 @@
     <div class="form-group">
         {!! Form::label('address', 'Address', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::textarea('address', old('address'), array('class'=>'form-control')) !!}
+            {!! Form::text('address', old('address'), array('class'=>'form-control')) !!}
 
         </div>
     </div>

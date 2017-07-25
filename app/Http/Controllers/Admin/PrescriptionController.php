@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Doctor;
+use App\DoctorAssistant;
+use App\Hospital;
 use App\Http\Controllers\Controller;
+use App\Patient;
+use Illuminate\Support\Facades\Auth;
 use Redirect;
 use Schema;
 use App\Prescription;
@@ -13,6 +18,11 @@ use App\Http\Controllers\Traits\FileUploadTrait;
 
 
 class PrescriptionController extends Controller {
+
+    function dump($value){
+        echo $value;
+        die();
+    }
 
 	/**
 	 * Display a listing of prescription
@@ -25,6 +35,7 @@ class PrescriptionController extends Controller {
     {
         $prescription = Prescription::all();
 
+
 		return view('admin.prescription.index', compact('prescription'));
 	}
 
@@ -35,9 +46,12 @@ class PrescriptionController extends Controller {
 	 */
 	public function create()
 	{
+        $patient = Patient::pluck('name', 'id');
+        $doctor = Doctor::pluck('name', 'id');
+        $hospital = Hospital::pluck('name', 'id');
+        $assistant = DoctorAssistant::pluck('name', 'id');
 	    
-	    
-	    return view('admin.prescription.create');
+	    return view('admin.prescription.create', compact('patient','doctor','hospital','assistant'));
 	}
 
 	/**
@@ -48,6 +62,7 @@ class PrescriptionController extends Controller {
 	public function store(CreatePrescriptionRequest $request)
 	{
 	    $request = $this->saveFiles($request);
+        $request['created_by'] = Auth::id();
 		Prescription::create($request->all());
 
 		return redirect()->route(config('quickadmin.route').'.prescription.index');

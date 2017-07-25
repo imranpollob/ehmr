@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Hospital;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -38,10 +39,11 @@ class DoctorController extends Controller {
 	 */
 	public function create()
 	{
-
         $blood_group = BloodGroup::pluck("title","id");
+        $hospital = Hospital::pluck('name', 'id');
 
-	    return view('admin.doctor.create',compact('blood_group'));
+
+        return view('admin.doctor.create', compact('blood_group','hospital'));
 	}
 
 	/**

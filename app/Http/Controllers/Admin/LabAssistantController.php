@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\BloodGroup;
+use App\Hospital;
 use App\Http\Controllers\Controller;
+use App\Lab;
+use App\User;
 use Redirect;
 use Schema;
 use App\LabAssistant;
@@ -35,9 +39,11 @@ class LabAssistantController extends Controller {
 	 */
 	public function create()
 	{
-	    
-	    
-	    return view('admin.labassistant.create');
+        $blood_group = BloodGroup::pluck("title","id");
+        $hospital = Hospital::pluck('name', 'id');
+        $lab = Lab::pluck('name', 'id');
+
+	    return view('admin.labassistant.create', compact('blood_group','hospital','lab'));
 	}
 
 	/**
@@ -47,6 +53,23 @@ class LabAssistantController extends Controller {
 	 */
 	public function store(CreateLabAssistantRequest $request)
 	{
+        $check = User::where("email", $request->email)->get();
+
+        if ($check->count()){
+            return redirect()->route(config('quickadmin.route').'.patient.create')
+                ->with('warning', 'Duplicate Email Address!');
+        }
+        else{
+            $la = LabAssistant::create($request->all());
+            User::create([
+                "role_id"=>5,
+                "user_id"=>$la->id,
+                "name"=>$la->name,
+                "email"=>$request->email,
+                "password"=>Hash::make($request->password)
+            ]);
+
+        }
 	    
 		LabAssistant::create($request->all());
 

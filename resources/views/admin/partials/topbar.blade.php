@@ -14,7 +14,7 @@
 
             <div class="top-menu">
                 <ul class="nav navbar-nav pull-right">
-
+                    <li style="color: white; font-size: 20px">{{ \Illuminate\Support\Facades\Auth::user()->name }}</li>
                 </ul>
             </div>
         </div>
