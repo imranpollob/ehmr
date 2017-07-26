@@ -61,7 +61,7 @@
     <div class="form-group">
         {!! Form::label('problems', 'Problems', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('problems', old('problems'), array('class'=>'form-control')) !!}
+            {!! Form::select('problems', $disease, old('problems'), array('class'=>'form-control chosen', "multiple")) !!}
 
         </div>
     </div>
@@ -69,6 +69,36 @@
         {!! Form::label('note', 'Note', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
             {!! Form::text('note', old('note'), array('class'=>'form-control')) !!}
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        {!! Form::label('medicine_id', 'Medicine', array('class'=>'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::Select('medicine_id', $medicine, old('medicine_id'), array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
+
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('schedule_id', 'Schedule*', array('class'=>'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::select('schedule_id', $medicine_schedule, old('schedule_id'), array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
+
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('days', 'Days*', array('class'=>'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::text('days', old('days'), array('class'=>'form-control')) !!}
+
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('diagnosis_id', 'Diagnosis*', array('class'=>'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::select('diagnosis_id', $diagnosis, old('diagnosis_id'), array('class'=>'form-control chosen', 'placeholder'=>'Please Select')) !!}
 
         </div>
     </div>

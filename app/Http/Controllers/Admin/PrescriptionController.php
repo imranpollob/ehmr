@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Diagnosis;
+use App\Diseases;
 use App\Doctor;
 use App\DoctorAssistant;
 use App\Hospital;
 use App\Http\Controllers\Controller;
+use App\Medicine;
+use App\MedicineSchedule;
 use App\Patient;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
@@ -50,8 +54,13 @@ class PrescriptionController extends Controller {
         $doctor = Doctor::pluck('name', 'id');
         $hospital = Hospital::pluck('name', 'id');
         $assistant = DoctorAssistant::pluck('name', 'id');
+        $disease = Diseases::pluck('title', 'id');
+        $medicine = Medicine::pluck('brand_name', 'id');
+        $medicine_schedule = MedicineSchedule::pluck('title', 'id');
+        $diagnosis = Diagnosis::pluck('name','id');
 	    
-	    return view('admin.prescription.create', compact('patient','doctor','hospital','assistant'));
+	    return view('admin.prescription.create',
+            compact('patient','doctor','hospital','assistant','disease','medicine','medicine_schedule','diagnosis'));
 	}
 
 	/**
