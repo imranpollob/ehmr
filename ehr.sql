@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2017 at 01:59 PM
+-- Generation Time: Jul 26, 2017 at 02:50 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,6 +19,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `ehr`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `approval`
+--
+
+CREATE TABLE `approval` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `requested_user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `is_approved` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -2006,7 +2021,9 @@ INSERT INTO `menus` (`id`, `position`, `menu_type`, `icon`, `name`, `title`, `pa
 (26, 0, 1, 'fa-database', 'Testeditor', 'testeditor', NULL, '2017-07-24 01:24:19', '2017-07-24 01:24:19'),
 (27, 0, 2, 'fa-database', 'People', 'People', NULL, '2017-07-26 00:29:32', '2017-07-26 00:29:32'),
 (28, 0, 1, 'fa-database', 'Diseases', 'Diseases', 6, '2017-07-26 00:33:07', '2017-07-26 00:33:07'),
-(29, 0, 1, 'fa-database', 'SpecialistType', 'Specialist Type', 6, '2017-07-26 00:46:33', '2017-07-26 00:46:33');
+(29, 0, 1, 'fa-database', 'SpecialistType', 'Specialist Type', 6, '2017-07-26 00:46:33', '2017-07-26 00:46:33'),
+(30, 0, 3, 'fa-database', 'PendingApproval', 'Pending Approval', NULL, '2017-07-26 06:42:32', '2017-07-26 06:42:32'),
+(31, 0, 1, 'fa-database', 'Approval', 'Approval', NULL, '2017-07-26 06:45:12', '2017-07-26 06:45:12');
 
 -- --------------------------------------------------------
 
@@ -2076,7 +2093,19 @@ INSERT INTO `menu_role` (`menu_id`, `role_id`) VALUES
 (29, 3),
 (29, 4),
 (29, 5),
-(29, 6);
+(29, 6),
+(30, 1),
+(30, 2),
+(30, 3),
+(30, 4),
+(30, 5),
+(30, 6),
+(31, 1),
+(31, 2),
+(31, 3),
+(31, 4),
+(31, 5),
+(31, 6);
 
 -- --------------------------------------------------------
 
@@ -2142,7 +2171,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (29, '2017_07_16_054949_create_vaccine_table', 23),
 (30, '2017_07_24_072419_create_testeditor_table', 24),
 (31, '2017_07_26_063307_create_diseases_table', 25),
-(32, '2017_07_26_064633_create_specialist_type_table', 26);
+(32, '2017_07_26_064633_create_specialist_type_table', 26),
+(33, '2017_07_26_124512_create_approval_table', 27);
 
 -- --------------------------------------------------------
 
@@ -2570,6 +2600,12 @@ INSERT INTO `vaccinetype` (`id`, `title`, `created_at`, `updated_at`) VALUES
 --
 
 --
+-- Indexes for table `approval`
+--
+ALTER TABLE `approval`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `bloodbank`
 --
 ALTER TABLE `bloodbank`
@@ -2770,6 +2806,11 @@ ALTER TABLE `vaccinetype`
 --
 
 --
+-- AUTO_INCREMENT for table `approval`
+--
+ALTER TABLE `approval`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `bloodbank`
 --
 ALTER TABLE `bloodbank`
@@ -2853,7 +2894,7 @@ ALTER TABLE `medicineschedule`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `message`
 --
@@ -2863,7 +2904,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `patient`
 --

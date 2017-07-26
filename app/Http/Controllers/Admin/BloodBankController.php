@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\BloodGroup;
 use App\Http\Controllers\Controller;
 use Redirect;
 use Schema;
@@ -35,9 +36,9 @@ class BloodBankController extends Controller {
 	 */
 	public function create()
 	{
+        $blood_group = BloodGroup::pluck("title","id");
 	    
-	    
-	    return view('admin.bloodbank.create');
+	    return view('admin.bloodbank.create',compact('blood_group'));
 	}
 
 	/**
