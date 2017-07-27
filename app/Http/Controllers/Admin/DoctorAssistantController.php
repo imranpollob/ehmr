@@ -6,6 +6,7 @@ use App\BloodGroup;
 use App\Doctor;
 use App\Hospital;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Redirect;
 use Schema;
 use App\DoctorAssistant;

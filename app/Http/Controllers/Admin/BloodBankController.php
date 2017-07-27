@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\BloodGroup;
+use App\Hospital;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Redirect;
 use Schema;
 use App\BloodBank;
@@ -15,6 +17,10 @@ use Illuminate\Http\Request;
 
 class BloodBankController extends Controller {
 
+    function dump($id){
+        echo $id;
+        die();
+    }
 	/**
 	 * Display a listing of bloodbank
 	 *
@@ -24,7 +30,14 @@ class BloodBankController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $bloodbank = BloodBank::all();
+        $bloodbank = BloodBank::select('hospital.name as hospital',
+            'bloodgroup.title as blood_group',
+            DB::raw('SUM(count) as count'))
+            ->leftJoin('hospital','hospital_id', '=', 'hospital.id')
+            ->leftJoin('bloodgroup','blood_group', '=', 'bloodgroup.id')
+            ->groupBy('hospital.name','bloodgroup.title')
+            ->get();
+
 
 		return view('admin.bloodbank.index', compact('bloodbank'));
 	}
@@ -36,9 +49,10 @@ class BloodBankController extends Controller {
 	 */
 	public function create()
 	{
+        $hospital = Hospital::pluck('name', 'id');
         $blood_group = BloodGroup::pluck("title","id");
 	    
-	    return view('admin.bloodbank.create',compact('blood_group'));
+	    return view('admin.bloodbank.create',compact('blood_group','hospital'));
 	}
 
 	/**

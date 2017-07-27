@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware('auth')->group(function (){
+
+    Route::post('approve_request', ['as'=>'approve_request', 'uses' => 'Admin\PendingApprovalController@approve']);
+
+    Route::post('reject_request', ['as'=>'reject_request', 'uses' => 'Admin\PendingApprovalController@reject']);
+
+});

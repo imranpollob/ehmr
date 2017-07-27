@@ -19,9 +19,10 @@
     {!! Form::open(array('route' => config('quickadmin.route').'.bloodbank.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
 
     <div class="form-group">
-        {!! Form::label('hospital_id', 'Hospital*', array('class'=>'col-sm-2 control-label')) !!}
+        {!! Form::label('hospital_id', 'Hospital', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('hospital_id', old('hospital_id'), array('class'=>'form-control')) !!}
+            {!! Form::select('hospital_id', $hospital, old('hospital_id'),
+            array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
 
         </div>
     </div>

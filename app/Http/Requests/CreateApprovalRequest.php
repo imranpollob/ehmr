@@ -24,10 +24,8 @@ class CreateApprovalRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-            'user_id' => 'required', 
-            'requested_user_id' => 'required', 
-            'is_approved' => 'required', 
-            
+            'requested_user_id' => 'required',
+
 		];
 	}
 }
