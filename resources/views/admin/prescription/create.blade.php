@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-sm-10 col-sm-offset-2">
-            <h1>{{ trans('quickadmin::templates.templates-view_create-add_new') }}</h1>
+            <h1>Add New Prescription</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">

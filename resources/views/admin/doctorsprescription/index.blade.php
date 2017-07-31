@@ -14,10 +14,8 @@
         </div>
     </div>
 
-    {!! Form::open(array('files' => true, 'route' => config('quickadmin.route').'.prescription.store',
+    {!! Form::open(array('files' => true, 'route' => 'store_doctor_prescription',
     'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
-
-
 
 
     <div class="panel panel-primary">
@@ -132,7 +130,7 @@
                 {!! Form::label('diagnosis_id', 'Diagnosis*', array('class'=>'col-sm-2 control-label')) !!}
                 <div class="col-sm-9">
                     {!! Form::select('diagnosis_id', $diagnosis, old('diagnosis_id'),
-                    array('class'=>'form-control chosen', 'placeholder'=>'Please Select')) !!}
+                    array('class'=>'form-control', 'placeholder'=>'Please Select')) !!}
 
                 </div>
             </div>
@@ -141,7 +139,8 @@
                 <button id="add_more_diagnosis" class="btn btn-primary">Add More</button>
             </div>
         </div>
-    </div>
+
+    {{ Form::hidden('invisible_id', 'secret', array('id' => 'invisible_id')) }}
 
     <br>
     <br>
@@ -150,7 +149,7 @@
     <div class="form-group">
         <div class="col-sm-12 text-center">
             {!! Form::submit( trans('quickadmin::templates.templates-view_create-create') ,
-            array('class' => 'btn btn-danger btn-lg')) !!}
+            array('class' => 'btn btn-danger btn-lg create', 'id' => "create_btn")) !!}
         </div>
     </div>
     {!! Form::close() !!}
@@ -177,6 +176,33 @@
                 return false;
             });
 
+
+            $("#create_btn").on("click", function () {
+                var id_qty = [];
+
+                $(".diagnosis_field").each(function () {
+
+                    var id = $(this).closest('tr').find(".diagnosis_id").val();
+
+
+                    id_qty.push({
+                        "id": id
+                    })
+
+                });
+
+                $('#invisible_id').val(JSON.stringify(id_qty)); //store array
+
+                console.log($("#invisible_id").val());
+
+                if (Object.keys(id_qty).length == 0) {
+                    alert("No item is selected!");
+                    return false;
+                }
+
+                return false;
+
+            });
 
         });
     </script>

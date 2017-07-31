@@ -15,10 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->group(function (){
+Route::middleware('auth')->group(function () {
 
-    Route::post('approve_request', ['as'=>'approve_request', 'uses' => 'Admin\PendingApprovalController@approve']);
+    Route::post('approve_request', ['as' => 'approve_request', 'uses' => 'Admin\PendingApprovalController@approve']);
 
-    Route::post('reject_request', ['as'=>'reject_request', 'uses' => 'Admin\PendingApprovalController@reject']);
+    Route::post('reject_request', ['as' => 'reject_request', 'uses' => 'Admin\PendingApprovalController@reject']);
+
+    Route::post('store_doctor_prescription', [
+            'as' => 'store_doctor_prescription',
+            'uses' => 'Admin\DoctorsPrescriptionController@store'
+        ]);
 
 });

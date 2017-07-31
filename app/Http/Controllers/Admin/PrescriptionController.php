@@ -23,11 +23,6 @@ use App\Http\Controllers\Traits\FileUploadTrait;
 
 class PrescriptionController extends Controller {
 
-    function dump($value){
-        echo $value;
-        die();
-    }
-
 	/**
 	 * Display a listing of prescription
 	 *

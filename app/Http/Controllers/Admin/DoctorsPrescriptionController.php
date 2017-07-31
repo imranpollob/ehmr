@@ -9,16 +9,11 @@ use App\Http\Controllers\Controller;
 use App\Medicine;
 use App\MedicineSchedule;
 use App\Patient;
+use Illuminate\Http\Request;
 
 class DoctorsPrescriptionController extends Controller {
 
-	/**
-	 * Index page
-	 *
-     * @param Request $request
-     *
-     * @return \Illuminate\View\View
-	 */
+
 	public function index()
     {
         $patient = Patient::pluck('name', 'id');
@@ -30,6 +25,11 @@ class DoctorsPrescriptionController extends Controller {
 
 		return view('admin.doctorsprescription.index',
             compact('patient','hospital','disease','medicine','medicine_schedule','diagnosis'));
+	}
+
+    public function store(Request $request)
+    {
+        dd($request->all());
 	}
 
 }

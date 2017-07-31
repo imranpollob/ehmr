@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2017 at 02:46 PM
+-- Generation Time: Jul 31, 2017 at 05:26 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -655,6 +655,32 @@ INSERT INTO `documenttype` (`id`, `title`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `healthnews`
+--
+
+CREATE TABLE `healthnews` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `approval_status` int(3) DEFAULT '0',
+  `approved_by` int(10) DEFAULT NULL,
+  `created_by` int(10) DEFAULT NULL,
+  `updated_by` int(10) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `healthnews`
+--
+
+INSERT INTO `healthnews` (`id`, `title`, `body`, `approval_status`, `approved_by`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'sample', '<p style=\"text-align:center\"><span style=\"font-size:22px\">I <span style=\"display:none\">&nbsp;</span>am a sample <strong>text</strong></span></p>', NULL, NULL, NULL, NULL, '2017-07-30 04:54:50', '2017-07-30 04:54:50'),
+(2, 'a', '<p>qwqwf df</p>', 0, NULL, 1, NULL, '2017-07-30 05:01:04', '2017-07-30 05:01:04');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `hospital`
 --
 
@@ -791,6 +817,27 @@ CREATE TABLE `labassistant` (
 
 INSERT INTO `labassistant` (`id`, `name`, `dob`, `gender`, `is_married`, `mobile`, `alt_mobile`, `address`, `blood_group`, `hospital_id`, `lab_id`, `created_at`, `updated_at`) VALUES
 (1, 'la1', '2017-07-04', 1, 1, 45164187, 4541541, 'Dhaka', 1, 2, 1, '2017-07-24 23:41:06', '2017-07-24 23:41:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `labreports`
+--
+
+CREATE TABLE `labreports` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `patient_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lab_document` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `labreports`
+--
+
+INSERT INTO `labreports` (`id`, `patient_id`, `lab_document`, `created_at`, `updated_at`) VALUES
+(1, '5', '1501219941-06125750.pdf', '2017-07-27 23:32:21', '2017-07-27 23:32:21');
 
 -- --------------------------------------------------------
 
@@ -2026,33 +2073,42 @@ INSERT INTO `menus` (`id`, `position`, `menu_type`, `icon`, `name`, `title`, `pa
 (3, 1, 1, 'fa-database', 'Patient', 'Patient', 27, '2017-07-03 10:45:46', '2017-07-26 00:29:53'),
 (4, 3, 1, 'fa-database', 'BloodGroup', 'Blood Group', 6, '2017-07-03 11:08:50', '2017-07-04 11:26:05'),
 (5, 2, 1, 'fa-database', 'Doctor', 'Doctor', 27, '2017-07-04 11:25:20', '2017-07-26 00:29:58'),
-(6, 13, 2, 'fa-database', 'Configuration', 'Configuration', NULL, '2017-07-04 11:25:55', '2017-07-26 23:37:52'),
+(6, 20, 2, 'fa-database', 'Configuration', 'Configuration', NULL, '2017-07-04 11:25:55', '2017-07-29 23:51:31'),
 (7, 0, 1, 'fa-database', 'HospitalType', 'Hospital Type', 6, '2017-07-04 11:47:42', '2017-07-04 11:47:42'),
 (8, 0, 1, 'fa-database', 'LabType', 'Lab Type', 6, '2017-07-04 11:48:38', '2017-07-04 11:48:51'),
 (9, 0, 1, 'fa-database', 'DocumentType', 'Document Type', 6, '2017-07-04 11:50:09', '2017-07-04 11:50:09'),
-(10, 12, 1, 'fa-database', 'Document', 'Document', NULL, '2017-07-04 11:59:04', '2017-07-26 23:37:52'),
+(10, 19, 1, 'fa-database', 'Document', 'Document', NULL, '2017-07-04 11:59:04', '2017-07-29 23:51:31'),
 (11, 6, 1, 'fa-database', 'Hospital', 'Hospital', 6, '2017-07-04 12:02:21', '2017-07-26 00:28:33'),
 (12, 7, 1, 'fa-database', 'Lab', 'Lab', 6, '2017-07-04 12:04:53', '2017-07-26 00:28:39'),
 (13, 3, 1, 'fa-database', 'HospitalAssistant', 'Hospital Assistant', 27, '2017-07-04 12:49:43', '2017-07-26 00:30:04'),
 (14, 4, 1, 'fa-database', 'LabAssistant', 'Lab Assistant', 27, '2017-07-04 12:55:50', '2017-07-26 00:30:10'),
 (15, 5, 1, 'fa-database', 'DoctorAssistant', 'Doctor Assistant', 27, '2017-07-04 12:59:29', '2017-07-26 00:30:15'),
-(16, 0, 1, 'fa-database', 'Diagnosis', 'Diagnosis', 6, '2017-07-05 12:07:21', '2017-07-26 00:28:57'),
-(17, 0, 1, 'fa-database', 'Medicine', 'Medicine', 6, '2017-07-05 13:21:13', '2017-07-26 00:28:18'),
-(18, 2, 1, 'fa-database', 'Prescription', 'Prescription', NULL, '2017-07-05 13:33:07', '2017-07-26 23:37:51'),
-(19, 3, 1, 'fa-database', 'PrescribedMedicine', 'Prescribed Medicine', NULL, '2017-07-05 13:35:44', '2017-07-26 23:37:51'),
-(20, 4, 1, 'fa-database', 'PrescribedDiagnosis', 'Prescribed Diagnosis', NULL, '2017-07-05 13:36:58', '2017-07-26 23:37:52'),
+(16, 0, 1, 'fa-database', 'Diagnosis', 'Diagnosis', 40, '2017-07-05 12:07:21', '2017-07-30 03:40:08'),
+(17, 0, 1, 'fa-database', 'Medicine', 'Medicine', 40, '2017-07-05 13:21:13', '2017-07-30 03:39:32'),
+(18, 8, 1, 'fa-database', 'Prescription', 'Prescription', NULL, '2017-07-05 13:33:07', '2017-07-29 23:51:31'),
+(19, 9, 1, 'fa-database', 'PrescribedMedicine', 'Prescribed Medicine', NULL, '2017-07-05 13:35:44', '2017-07-29 23:51:31'),
+(20, 10, 1, 'fa-database', 'PrescribedDiagnosis', 'Prescribed Diagnosis', NULL, '2017-07-05 13:36:58', '2017-07-29 23:51:31'),
 (21, 0, 1, 'fa-database', 'MedicineSchedule', 'Medicine Schedule', 6, '2017-07-05 13:38:18', '2017-07-26 00:31:04'),
-(22, 7, 1, 'fa-database', 'Message', 'Message', NULL, '2017-07-10 06:14:18', '2017-07-27 03:08:34'),
-(23, 8, 1, 'fa-database', 'BloodBank', 'Blood Bank', NULL, '2017-07-10 06:18:48', '2017-07-27 03:08:34'),
+(22, 14, 1, 'fa-database', 'Message', 'Message', NULL, '2017-07-10 06:14:18', '2017-07-29 23:51:31'),
+(23, 15, 1, 'fa-database', 'BloodBank', 'Blood Bank', NULL, '2017-07-10 06:18:48', '2017-07-29 23:51:31'),
 (24, 0, 1, 'fa-database', 'VaccineType', 'Vaccine Type', 6, '2017-07-15 23:44:30', '2017-07-15 23:44:30'),
-(25, 9, 1, 'fa-database', 'Vaccine', 'Vaccine', NULL, '2017-07-15 23:49:49', '2017-07-27 03:08:34'),
-(26, 10, 1, 'fa-database', 'Testeditor', 'testeditor', NULL, '2017-07-24 01:24:19', '2017-07-27 03:08:34'),
-(27, 11, 2, 'fa-database', 'People', 'People', NULL, '2017-07-26 00:29:32', '2017-07-27 03:08:34'),
-(28, 0, 1, 'fa-database', 'Diseases', 'Diseases', 6, '2017-07-26 00:33:07', '2017-07-26 00:33:07'),
+(25, 16, 1, 'fa-database', 'Vaccine', 'Vaccine', 40, '2017-07-15 23:49:49', '2017-07-30 03:38:14'),
+(26, 17, 1, 'fa-database', 'Testeditor', 'testeditor', NULL, '2017-07-24 01:24:19', '2017-07-29 23:51:31'),
+(27, 18, 2, 'fa-database', 'People', 'People', NULL, '2017-07-26 00:29:32', '2017-07-29 23:51:31'),
+(28, 0, 1, 'fa-database', 'Diseases', 'Diseases', 40, '2017-07-26 00:33:07', '2017-07-30 03:40:46'),
 (29, 0, 1, 'fa-database', 'SpecialistType', 'Specialist Type', 6, '2017-07-26 00:46:33', '2017-07-26 00:46:33'),
-(30, 6, 3, 'fa-database', 'PendingApproval', 'Pending Approval', NULL, '2017-07-26 06:42:32', '2017-07-27 03:08:34'),
-(31, 5, 1, 'fa-database', 'Approval', 'Approval', NULL, '2017-07-26 06:45:12', '2017-07-27 03:08:34'),
-(32, 1, 3, 'fa-database', 'DoctorsPrescription', 'Doctors Prescription', NULL, '2017-07-26 23:37:36', '2017-07-26 23:37:52');
+(30, 13, 3, 'fa-database', 'PendingApproval', 'Pending Approval', NULL, '2017-07-26 06:42:32', '2017-07-29 23:51:31'),
+(31, 12, 1, 'fa-database', 'Approval', 'Approval', NULL, '2017-07-26 06:45:12', '2017-07-29 23:51:31'),
+(32, 7, 3, 'fa-database', 'DoctorsPrescription', 'Doctors Prescription', NULL, '2017-07-26 23:37:36', '2017-07-29 23:51:31'),
+(33, 11, 1, 'fa-database', 'LabReports', 'Lab Reports', NULL, '2017-07-27 23:29:14', '2017-07-29 23:51:30'),
+(34, 1, 3, 'fa-database', 'PatientDashboard', 'Patient Dashboard', NULL, '2017-07-27 23:39:57', '2017-07-29 23:51:30'),
+(35, 2, 3, 'fa-database', 'DoctorDashboard', 'Doctor Dashboard', NULL, '2017-07-29 23:45:15', '2017-07-29 23:51:30'),
+(36, 3, 3, 'fa-database', 'LabAssistantDashboard', 'Lab Assistant Dashboard', NULL, '2017-07-29 23:45:53', '2017-07-29 23:51:30'),
+(37, 4, 3, 'fa-database', 'HospitalAssistantDashboard', 'Hospital Assistant Dashboard', NULL, '2017-07-29 23:46:16', '2017-07-29 23:51:30'),
+(38, 5, 3, 'fa-database', 'DoctorAssistantDashboard', 'Doctor Assistant Dashboard', NULL, '2017-07-29 23:46:55', '2017-07-29 23:51:30'),
+(39, 6, 3, 'fa-database', 'MyProfile', 'My Profile', NULL, '2017-07-29 23:47:58', '2017-07-29 23:51:31'),
+(40, 0, 2, 'fa-database', 'Create/Approve', 'Create New', NULL, '2017-07-30 03:37:10', '2017-07-30 06:40:52'),
+(41, 0, 1, 'fa-database', 'HealthNews', 'Health News', NULL, '2017-07-30 03:49:11', '2017-07-30 03:49:11');
 
 -- --------------------------------------------------------
 
@@ -2090,8 +2146,10 @@ INSERT INTO `menu_role` (`menu_id`, `role_id`) VALUES
 (15, 6),
 (16, 1),
 (16, 3),
+(16, 4),
 (17, 1),
 (17, 3),
+(17, 4),
 (17, 6),
 (18, 1),
 (18, 3),
@@ -2110,7 +2168,7 @@ INSERT INTO `menu_role` (`menu_id`, `role_id`) VALUES
 (27, 1),
 (28, 1),
 (28, 3),
-(28, 6),
+(28, 4),
 (29, 1),
 (29, 2),
 (29, 3),
@@ -2130,7 +2188,33 @@ INSERT INTO `menu_role` (`menu_id`, `role_id`) VALUES
 (31, 5),
 (31, 6),
 (32, 1),
-(32, 3);
+(32, 3),
+(33, 1),
+(33, 2),
+(33, 5),
+(34, 1),
+(34, 2),
+(35, 1),
+(35, 3),
+(36, 1),
+(36, 5),
+(37, 1),
+(37, 4),
+(38, 1),
+(38, 6),
+(39, 1),
+(39, 2),
+(39, 3),
+(39, 4),
+(39, 5),
+(39, 6),
+(40, 1),
+(41, 1),
+(41, 2),
+(41, 3),
+(41, 4),
+(41, 5),
+(41, 6);
 
 -- --------------------------------------------------------
 
@@ -2197,7 +2281,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (30, '2017_07_24_072419_create_testeditor_table', 24),
 (31, '2017_07_26_063307_create_diseases_table', 25),
 (32, '2017_07_26_064633_create_specialist_type_table', 26),
-(33, '2017_07_26_124512_create_approval_table', 27);
+(33, '2017_07_26_124512_create_approval_table', 27),
+(34, '2017_07_28_052915_create_lab_reports_table', 28),
+(35, '2017_07_30_094911_create_health_news_table', 29);
 
 -- --------------------------------------------------------
 
@@ -2423,10 +2509,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `user_id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, 'pollob', 'polboy777@gmail.com', '$2y$10$UTegxdOGD/TNY3cVOGF8xOVwGlR7DH1Ttf6JIfPkEBcD6PRNUQsB2', 'GLWmE2Zdc2FaYkOc4Ve8yQRLvMUcc9b59Pofa8vYmEoW9I9gYrGEVAilhSV7', '2017-07-02 12:01:43', '2017-07-02 12:01:43'),
+(1, 1, NULL, 'pollob', 'polboy777@gmail.com', '$2y$10$UTegxdOGD/TNY3cVOGF8xOVwGlR7DH1Ttf6JIfPkEBcD6PRNUQsB2', 'm9YJQ5HU8zex7zHoRBXzTVPrErGemn0rQljhaVOzJzkENfNCc5PKjiEFuEGj', '2017-07-02 12:01:43', '2017-07-02 12:01:43'),
 (4, 2, 4, 'mr. patient', 'patient@a.com', '$2y$10$GKzp8vUapDcKbkTCSCBrNug5m3d2IvWY1jF08L4/z5pBPCjl2cjY2', 'rmtTTFGdhX31n2RFAUD0gSFcrK4NwTVmX5ZYmuqKbri6cxLv6Q9R5V2ylcwg', '2017-07-03 11:27:33', '2017-07-03 11:27:33'),
-(5, 3, 2, 'mr. Doctor', 'doctor@a.com', '$2y$10$iRYfUObkPtQabWi9eYyhGegWYzdINo2yQzDcvA4Am7twJ8vzQD1Tu', 'L7c6E3O8StLiIDErJmPm0dVYUCBws339sQaYdbG0md2dqYgglJxuwln4Jkcj', '2017-07-04 11:39:48', '2017-07-04 11:39:48'),
-(6, 2, 5, 'patient 1', 'p1@a.com', '$2y$10$vV/CATV4BS4S8bZkxuviuu/kkUPtEEjQ7WgQSD3fd7uyGmXR0w2zm', 'Sa5JqgjJRS0eiNvocriKkDkrXTbRIeO3OKRTE9txXO6lEQEkgZIIKokNVLaR', '2017-07-24 11:37:49', '2017-07-24 11:37:49'),
+(5, 3, 2, 'mr. Doctor', 'doctor@a.com', '$2y$10$iRYfUObkPtQabWi9eYyhGegWYzdINo2yQzDcvA4Am7twJ8vzQD1Tu', '7qxdximGYn9V0YvL9QWiArNQQcWPVJbKnRfXK5pOPoJyedhjupokdTcdDxKI', '2017-07-04 11:39:48', '2017-07-04 11:39:48'),
+(6, 2, 5, 'patient 1', 'p1@a.com', '$2y$10$vV/CATV4BS4S8bZkxuviuu/kkUPtEEjQ7WgQSD3fd7uyGmXR0w2zm', 'DLchFFBKn4lYXUYeqOzNoDkBymCuyxkcHygfVl7YnkaiXYEdLw214YhoUT8Z', '2017-07-24 11:37:49', '2017-07-24 11:37:49'),
 (7, 3, 3, 'doctor 1', 'd1@a.com', '$2y$10$sa.R9hvDrxVpH9163LUwYesGHyYRRVQLENfh6S1JCD8kqWJBAQ66m', 'Z1WpL0aVBJIzkBcyMoxxI91Uc5QQDxBzXn1hMlFpBAdKffjPMWxULmm3StWV', '2017-07-24 11:50:39', '2017-07-24 11:50:39'),
 (8, 4, 3, 'ha2', 'ha2@a.com', '$2y$10$RB7rTI6aGdfd7ee3hsZAjuKx/0Pc2Pi/nNh6NxcBIFYdL8QjsIsSS', NULL, '2017-07-27 03:29:46', '2017-07-27 03:29:46');
 
@@ -2607,7 +2693,20 @@ INSERT INTO `users_logs` (`id`, `user_id`, `action`, `action_model`, `action_id`
 (154, 7, 'updated', 'approval', 5, '2017-07-27 06:42:32', '2017-07-27 06:42:32'),
 (155, 7, 'updated', 'approval', 5, '2017-07-27 06:43:33', '2017-07-27 06:43:33'),
 (156, 7, 'created', 'approval', 6, '2017-07-27 06:44:02', '2017-07-27 06:44:02'),
-(157, 7, 'updated', 'users', 7, '2017-07-27 06:44:59', '2017-07-27 06:44:59');
+(157, 7, 'updated', 'users', 7, '2017-07-27 06:44:59', '2017-07-27 06:44:59'),
+(158, 1, 'created', 'labreports', 1, '2017-07-27 23:32:21', '2017-07-27 23:32:21'),
+(159, 1, 'updated', 'users', 1, '2017-07-28 00:46:04', '2017-07-28 00:46:04'),
+(160, 1, 'updated', 'users', 1, '2017-07-29 00:42:22', '2017-07-29 00:42:22'),
+(161, 1, 'updated', 'users', 1, '2017-07-29 00:43:12', '2017-07-29 00:43:12'),
+(162, 1, 'created', 'healthnews', 1, '2017-07-30 04:54:50', '2017-07-30 04:54:50'),
+(163, 1, 'created', 'healthnews', 2, '2017-07-30 05:01:04', '2017-07-30 05:01:04'),
+(164, 1, 'updated', 'users', 1, '2017-07-30 07:43:58', '2017-07-30 07:43:58'),
+(165, 1, 'updated', 'users', 1, '2017-07-30 07:44:17', '2017-07-30 07:44:17'),
+(166, 6, 'updated', 'users', 6, '2017-07-30 07:44:59', '2017-07-30 07:44:59'),
+(167, 5, 'updated', 'users', 5, '2017-07-30 07:45:45', '2017-07-30 07:45:45'),
+(168, 5, 'updated', 'users', 5, '2017-07-30 07:47:08', '2017-07-30 07:47:08'),
+(169, 6, 'updated', 'users', 6, '2017-07-30 07:53:02', '2017-07-30 07:53:02'),
+(170, 1, 'updated', 'users', 1, '2017-07-30 07:54:52', '2017-07-30 07:54:52');
 
 -- --------------------------------------------------------
 
@@ -2706,6 +2805,12 @@ ALTER TABLE `documenttype`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `healthnews`
+--
+ALTER TABLE `healthnews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `hospital`
 --
 ALTER TABLE `hospital`
@@ -2733,6 +2838,12 @@ ALTER TABLE `lab`
 -- Indexes for table `labassistant`
 --
 ALTER TABLE `labassistant`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `labreports`
+--
+ALTER TABLE `labreports`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2903,6 +3014,11 @@ ALTER TABLE `document`
 ALTER TABLE `documenttype`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `healthnews`
+--
+ALTER TABLE `healthnews`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `hospital`
 --
 ALTER TABLE `hospital`
@@ -2928,6 +3044,11 @@ ALTER TABLE `lab`
 ALTER TABLE `labassistant`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `labreports`
+--
+ALTER TABLE `labreports`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `labtype`
 --
 ALTER TABLE `labtype`
@@ -2946,7 +3067,7 @@ ALTER TABLE `medicineschedule`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `message`
 --
@@ -2956,7 +3077,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `patient`
 --
@@ -3001,7 +3122,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 --
 -- AUTO_INCREMENT for table `vaccine`
 --

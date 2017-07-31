@@ -3,7 +3,7 @@
         <div class="page-header-inner">
             <div class="navbar-header">
                 <a href="{{ url(config('quickadmin.homeRoute')) }}" class="navbar-brand">
-                    {{ trans('quickadmin::admin.partials-topbar-title') }}
+                    EHMR
                 </a>
             </div>
             <a href="javascript:;"

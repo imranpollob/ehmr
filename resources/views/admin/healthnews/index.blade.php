@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <p>{!! link_to_route(config('quickadmin.route').'.testeditor.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
+    <p>{!! link_to_route(config('quickadmin.route').'.healthnews.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
 
-    @if ($testeditor->count())
+    @if ($healthnews->count())
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
@@ -16,34 +16,31 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>file</th>
-                        <th>datetime</th>
-                        <th>photo</th>
-                        <th>date</th>
-                        <th>money</th>
+                        <th>Title</th>
+                        <th>Approval Status</th>
+                        <th>Approved By</th>
+                        <th>Created By</th>
+                        <th>Updated By</th>
 
                         <th>&nbsp;</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    @foreach ($testeditor as $row)
+                    @foreach ($healthnews as $row)
                         <tr>
                             <td>
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
-                            <td><a href="{{ asset('public/uploads') . '/'.  $row->file }}" download>{{ $row->file }}</a>
-                            </td>
-                            <td>{{ $row->datetime }}</td>
-                            <td>@if($row->photo != '')<img src="{{ asset('public/uploads') . '/'.  $row->file }}"
-                                                           height="50" width="50">@endif
-                            </td>
-                            <td>{{ $row->date }}</td>
-                            <td>{{ $row->money }}</td>
+                            <td>{{ $row->title }}</td>
+                            <td>{{ $row->approval_status }}</td>
+                            <td>{{ $row->approved_by }}</td>
+                            <td>{{ $row->created_by }}</td>
+                            <td>{{ $row->updated_by }}</td>
 
                             <td>
-                                {!! link_to_route(config('quickadmin.route').'.testeditor.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
-                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.testeditor.destroy', $row->id))) !!}
+                                {!! link_to_route(config('quickadmin.route').'.healthnews.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.healthnews.destroy', $row->id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
                             </td>
@@ -58,7 +55,7 @@
                         </button>
                     </div>
                 </div>
-                {!! Form::open(['route' => config('quickadmin.route').'.testeditor.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
+                {!! Form::open(['route' => config('quickadmin.route').'.healthnews.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
                 {!! Form::close() !!}
             </div>
@@ -67,36 +64,7 @@
         {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
     @endif
 
-
-    {{--defaults--}}
-    {{--<div class="col-md-4">--}}
-        {{--<div class="panel panel-primary">--}}
-            {{--<div class="panel-heading">--}}
-                {{--<div class="row">--}}
-                    {{--<div class="col-xs-3">--}}
-                        {{--<i class="fa fa-support fa-5x"></i>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-xs-9 text-right">--}}
-                        {{--<div class="huge">Message</div>--}}
-                        {{--<div>1</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<a href="#">--}}
-                {{--<div class="panel-footer">--}}
-                    {{--<span class="pull-left">View Details</span>--}}
-                    {{--<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>--}}
-                    {{--<div class="clearfix"></div>--}}
-                {{--</div>--}}
-            {{--</a>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-    {{--end defaults--}}
-
-
 @endsection
-
-
 
 @section('javascript')
     <script>

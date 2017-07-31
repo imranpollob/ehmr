@@ -25,6 +25,7 @@
 
         </div>
     </div>
+
     <div class="form-group">
         {!! Form::label('file', 'file', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
@@ -32,13 +33,31 @@
 
         </div>
     </div>
+
     <div class="form-group">
-        {!! Form::label('datetime', 'datetime', array('class'=>'col-sm-2 control-label')) !!}
+        {!! Form::label('datetime', 'Datetime', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
             {!! Form::text('datetime', old('datetime'), array('class'=>'form-control datetimepicker')) !!}
 
         </div>
     </div>
+
+    <div class="form-group">
+        {!! Form::label('date', 'Date', array('class'=>'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::text('date', old('date'), array('class'=>'form-control datepicker')) !!}
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('time', 'Time', array('class'=>'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::text('time', "", array('class'=>'form-control timepicker')) !!}
+
+        </div>
+    </div>
+
     <div class="form-group">
         {!! Form::label('photo', 'photo', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
@@ -48,13 +67,7 @@
 
         </div>
     </div>
-    <div class="form-group">
-        {!! Form::label('date', 'date', array('class'=>'col-sm-2 control-label')) !!}
-        <div class="col-sm-10">
-            {!! Form::text('date', old('date'), array('class'=>'form-control datepicker')) !!}
 
-        </div>
-    </div>
     <div class="form-group">
         {!! Form::label('money', 'money', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
