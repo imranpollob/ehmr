@@ -28,6 +28,3 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::get('dash', function () {
-    return view('admin.newlayout.master');
-});
