@@ -24,7 +24,7 @@ class HealthNewsController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $healthnews = HealthNews::all();
+        $healthnews = HealthNews::orderBy('created_at','DESC')->paginate(1);
 
 		return view('admin.healthnews.index', compact('healthnews'));
 	}
