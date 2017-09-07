@@ -7,7 +7,7 @@
         }
 
         h3{
-            padding: 20px;
+            padding: 10px;
         }
     </style>
 @endsection

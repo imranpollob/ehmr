@@ -184,7 +184,7 @@
         </div>
         <div class="content-body">
 
-            <div class="row first">
+            <div class="first">
 
                 @yield('content')
 
