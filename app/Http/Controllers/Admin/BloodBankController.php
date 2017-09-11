@@ -30,12 +30,21 @@ class BloodBankController extends Controller {
 	 */
 	public function index(Request $request)
     {
+
+
         $bloodbank = BloodBank::select('hospital.name as hospital',
             'bloodgroup.title as blood_group',
             DB::raw('SUM(count) as count'))
             ->leftJoin('hospital','hospital_id', '=', 'hospital.id')
             ->leftJoin('bloodgroup','blood_group', '=', 'bloodgroup.id')
             ->groupBy('hospital.name','bloodgroup.title')
+            ->get();
+
+        $bloodbank = BloodBank::select('bloodgroup.id as id',
+            'bloodgroup.title',
+            DB::raw('sum(count) as count'))
+            ->leftJoin('bloodgroup','blood_group', '=', 'bloodgroup.id')
+            ->groupBy('bloodgroup.id')
             ->get();
 
 
@@ -127,6 +136,20 @@ class BloodBankController extends Controller {
         }
 
         return redirect()->route(config('quickadmin.route').'.bloodbank.index');
+    }
+
+    public function show($id)
+    {
+        $bloodbank = BloodBank::select('hospital.name as hospital',
+            DB::raw('SUM(count) as count'))
+            ->leftJoin('hospital','hospital_id', '=', 'hospital.id')
+            ->where('blood_group','=',$id)
+            ->groupBy('hospital.name')
+            ->get();
+        $bloodgroup = BloodGroup::find($id)->title;
+
+        return view('admin.bloodbank.show', compact('bloodbank','bloodgroup'));
+
     }
 
 }

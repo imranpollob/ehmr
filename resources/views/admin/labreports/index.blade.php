@@ -5,12 +5,12 @@
     <p>{!! link_to_route(config('quickadmin.route').'.labreports.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
 
     @if ($labreports->count())
-        <div class="portlet box green">
-            <div class="portlet-title">
-                <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
             </div>
-            <div class="portlet-body">
-                <table class="table table-striped table-hover table-responsive datatable" id="datatable">
+            <div class="card-block">
+                <table class="table  table-hover" id="datatable">
                     <thead>
                     <tr>
                         <th>

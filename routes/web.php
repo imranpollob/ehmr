@@ -26,5 +26,6 @@ Route::middleware('auth')->group(function () {
             'uses' => 'Admin\DoctorsPrescriptionController@store'
         ]);
 
+    Route::get('admin/bloodbank/show/{id}', 'Admin\BloodBankController@show');
 });
 
