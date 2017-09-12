@@ -23,7 +23,7 @@ class VaccineController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $vaccine = Vaccine::all();
+        $vaccine = Vaccine::paginate(10);
 
 		return view('admin.vaccine.index', compact('vaccine'));
 	}

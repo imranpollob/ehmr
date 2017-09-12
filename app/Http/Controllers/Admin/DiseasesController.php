@@ -23,7 +23,7 @@ class DiseasesController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $diseases = Diseases::all();
+        $diseases = Diseases::paginate(10);
 
 		return view('admin.diseases.index', compact('diseases'));
 	}

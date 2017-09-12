@@ -23,7 +23,7 @@ class DiagnosisController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $diagnosis = Diagnosis::all();
+        $diagnosis = Diagnosis::paginate(10);
 
 		return view('admin.diagnosis.index', compact('diagnosis'));
 	}
