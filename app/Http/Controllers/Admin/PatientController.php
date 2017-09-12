@@ -26,7 +26,7 @@ class PatientController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $patient = Patient::all();
+        $patient = Patient::orderBy('id','desc')->paginate(10);
 
 		return view('admin.patient.index', compact('patient'));
 	}

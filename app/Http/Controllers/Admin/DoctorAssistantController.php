@@ -27,7 +27,7 @@ class DoctorAssistantController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $doctorassistant = DoctorAssistant::all();
+        $doctorassistant = DoctorAssistant::orderBy('id','desc')->paginate(10);
 
 		return view('admin.doctorassistant.index', compact('doctorassistant'));
 	}
