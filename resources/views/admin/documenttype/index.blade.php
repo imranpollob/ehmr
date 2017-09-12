@@ -2,27 +2,36 @@
 
 @section('content')
 
-<p>{!! link_to_route(config('quickadmin.route').'.documenttype.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
 
-@if ($documenttype->count())
-    <div class="portlet box green">
-        <div class="portlet-title">
-            <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
-        </div>
-        <div class="portlet-body">
-            <table class="table table-striped table-hover table-responsive datatable" id="datatable">
-                <thead>
+    @if ($documenttype->count())
+
+        <div>{!! link_to_route(config('quickadmin.route').'.documenttype.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-default')) !!}</div>
+        <br>
+
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Document Types</h4>
+                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover datatable" id="datatable">
+                    <thead>
                     <tr>
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>T</th>
+                        <th>Type</th>
 
                         <th>&nbsp;</th>
                     </tr>
-                </thead>
+                    </thead>
 
-                <tbody>
+                    <tbody>
                     @foreach ($documenttype as $row)
                         <tr>
                             <td>
@@ -38,23 +47,23 @@
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
-            </table>
-            <div class="row">
-                <div class="col-xs-12">
-                    <button class="btn btn-danger" id="delete">
-                        {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
-                    </button>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-danger" id="delete">
+                            {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
+                        </button>
+                    </div>
                 </div>
-            </div>
-            {!! Form::open(['route' => config('quickadmin.route').'.documenttype.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
+                {!! Form::open(['route' => config('quickadmin.route').'.documenttype.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
-            {!! Form::close() !!}
+                {!! Form::close() !!}
+            </div>
         </div>
-	</div>
-@else
-    {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
-@endif
+    @else
+        {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
+    @endif
 
 @endsection
 
