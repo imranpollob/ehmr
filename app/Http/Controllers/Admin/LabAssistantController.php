@@ -28,7 +28,7 @@ class LabAssistantController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $labassistant = LabAssistant::all();
+        $labassistant = LabAssistant::orderBy('id','desc')->paginate(10);
 
 		return view('admin.labassistant.index', compact('labassistant'));
 	}

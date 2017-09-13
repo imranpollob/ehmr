@@ -2,6 +2,47 @@
 
 @section('content')
 
+@if ($healthnews->count())
+@foreach ($healthnews as $row)
+<div class="content-body">
+	<div class="row match-height">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<h4 class="card-title" id="basic-layout-form-center">{{ $row->title }}</h4>
+					<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+					<div class="heading-elements">
+						<ul class="list-inline mb-0">
+							<li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+							<li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+							<li><a data-action="close"><i class="icon-cross2"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="card-body collapse in">
+					<div class="card-block">
+						<div class="card-text">
+                            <p>{!! $row->body !!}</p>
+                        </div>
+                        
+                        <hr>
+                        <div class="text-xs-right">
+                        {{ $row->created_by }}: {{ $row->created_at }}
+                        </div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+@endforeach
+									
+{{ $healthnews->links() }}
+@else
+    {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
+@endif
     <p>{!! link_to_route(config('quickadmin.route').'.healthnews.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
 
     @if ($healthnews->count())

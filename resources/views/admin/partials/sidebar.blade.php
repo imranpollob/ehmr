@@ -7,7 +7,7 @@
             @if(Auth::user()->role_id == config('quickadmin.defaultRole'))
                 <li @if(Request::path() == config('quickadmin.route').'/menu') class="active" @endif>
                     <a href="{{ url(config('quickadmin.route').'/menu') }}">
-                        <i class="fa fa-list"></i>
+                        <i class="icon-menu"></i>
                         <span class="title">{{ trans('quickadmin::admin.partials-sidebar-menu') }}</span>
                     </a>
                 </li>

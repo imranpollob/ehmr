@@ -1,85 +1,95 @@
 @extends('admin.layouts.master')
 
+@section('style')
+    <style>
+        a:link, a:visited, a:hover, a:active {
+            color: inherit;
+        }
+
+        h3{
+            padding: 10px;
+        }
+    </style>
+@endsection
+
 @section('content')
 
-    <div class="row">
-
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="huge">New Prescription</div>
+<div class="row">
+    <div class="col-xl-4 col-lg-6 col-xs-12">
+        <a href="#">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <i class="icon-pencil blue font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="media-body text-xs-right">
+                                <h3>New Prescription</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
             </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="huge">New Patient</div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="huge">Blood Bank</div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
+        </a>
     </div>
-
-
-
-
-
-    <div class="row">
-
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="huge">Health News</div>
+    <div class="col-xl-4 col-lg-6 col-xs-12">
+        <a href="#">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <i class="icon-user2 green font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="media-body text-xs-right">
+                                <h3>New Patient</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
             </div>
-        </div>
-
+        </a>
     </div>
+    <div class="col-xl-4 col-lg-6 col-xs-12">
+        <a href="#">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <i class="icon-droplet pink font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="media-body text-xs-right">
+                                <h3>Blood Bank</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-xl-4 col-lg-6 col-xs-12">
+        <a href="#">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <i class="icon-news blue font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="media-body text-xs-right">
+                                <h3>Health News</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
 
 @endsection

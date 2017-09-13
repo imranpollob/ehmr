@@ -23,7 +23,7 @@ class MedicineController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $medicine = Medicine::all();
+        $medicine = Medicine::paginate(10);
 
 		return view('admin.medicine.index', compact('medicine'));
 	}
