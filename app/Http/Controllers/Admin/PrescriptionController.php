@@ -133,4 +133,12 @@ class PrescriptionController extends Controller {
         return redirect()->route(config('quickadmin.route').'.prescription.index');
     }
 
+    public function show($id)
+    {
+        Prescription::find($id);
+
+        return view('admin.prescription.show');
+
+    }
+
 }
