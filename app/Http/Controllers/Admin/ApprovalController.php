@@ -29,7 +29,6 @@ class ApprovalController extends Controller
     {
         $approval = Approval::where('user_id', Auth::id())->get();
 
-
         return view('admin.approval.index', compact('approval', 'data'));
     }
 

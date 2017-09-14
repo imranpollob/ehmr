@@ -1,74 +1,37 @@
-@include('admin.partials.header')
-<div style="margin-top: 10%;"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('quickadmin::auth.login-login') }}</div>
-                <div class="panel-body">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>{{ trans('quickadmin::auth.whoops') }}</strong> {{ trans('quickadmin::auth.some_problems_with_input') }}
-                            <br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+@extends('auth.layouts.master')
 
-                    <form class="form-horizontal"
-                          role="form"
-                          method="POST"
-                          action="{{ url('login') }}">
-                        <input type="hidden"
-                               name="_token"
-                               value="{{ csrf_token() }}">
+@section('title',"Login to the system")
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">{{ trans('quickadmin::auth.login-email') }}</label>
+@section('content')
 
-                            <div class="col-md-6">
-                                <input type="email"
-                                       class="form-control"
-                                       name="email"
-                                       value="{{ old('email') }}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">{{ trans('quickadmin::auth.login-password') }}</label>
-
-                            <div class="col-md-6">
-                                <input type="password"
-                                       class="form-control"
-                                       name="password">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <label>
-                                    <input type="checkbox"
-                                           name="remember">{{ trans('quickadmin::auth.login-remember_me') }}
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit"
-                                        class="btn btn-primary"
-                                        style="margin-right: 15px;">
-                                    {{ trans('quickadmin::auth.login-btnlogin') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="card-block">
+            <form class="form-horizontal form-simple" action="{{ url('login') }}" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            
+                <fieldset class="form-group position-relative has-icon-left mb-0">
+                    <input type="email" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Email" name="email" value="{{ old('email') }}" required>
+                    <div class="form-control-position">
+                        <i class="icon-head"></i>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group position-relative has-icon-left">
+                    <input type="password" class="form-control form-control-lg input-lg" id="user-password" placeholder="Enter Password" name="password" required>
+                    <div class="form-control-position">
+                        <i class="icon-key3"></i>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group row">
+                    <div class="col-md-6 col-xs-12 text-xs-center text-md-left">
+                        <fieldset>
+                            <input type="checkbox" id="remember-me" class="chk-remember" name="remember">
+                            <label for="remember-me"> Remember Me</label>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="#" class="card-link">Forgot Password?</a></div>
+                </fieldset>
+                <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>
+            </form>
         </div>
     </div>
-</div>
-@include('admin.partials.footer')
+
+@endsection   

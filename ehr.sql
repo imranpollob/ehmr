@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 31, 2017 at 05:26 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Host: localhost
+-- Generation Time: Sep 12, 2017 at 07:54 AM
+-- Server version: 5.7.19-0ubuntu0.16.04.1
+-- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -76,7 +76,9 @@ INSERT INTO `bloodbank` (`id`, `hospital_id`, `blood_group`, `count`, `created_a
 (6, 4, 5, 5, '2017-07-27 02:02:46', '2017-07-27 02:02:46', NULL),
 (7, 4, 7, 8, '2017-07-27 02:02:56', '2017-07-27 02:02:56', NULL),
 (8, 4, 7, 2, '2017-07-27 02:03:06', '2017-07-27 02:03:06', NULL),
-(9, 2, 2, -1, '2017-07-27 02:31:21', '2017-07-27 02:31:21', NULL);
+(9, 2, 2, -1, '2017-07-27 02:31:21', '2017-07-27 02:31:21', NULL),
+(10, 4, 5, 1, '2017-09-10 10:41:24', '2017-09-10 10:41:24', NULL),
+(11, 3, 8, 3, '2017-09-10 10:41:35', '2017-09-10 10:41:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -675,8 +677,10 @@ CREATE TABLE `healthnews` (
 --
 
 INSERT INTO `healthnews` (`id`, `title`, `body`, `approval_status`, `approved_by`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'sample', '<p style=\"text-align:center\"><span style=\"font-size:22px\">I <span style=\"display:none\">&nbsp;</span>am a sample <strong>text</strong></span></p>', NULL, NULL, NULL, NULL, '2017-07-30 04:54:50', '2017-07-30 04:54:50'),
-(2, 'a', '<p>qwqwf df</p>', 0, NULL, 1, NULL, '2017-07-30 05:01:04', '2017-07-30 05:01:04');
+(1, 'sample', '<p style="text-align:center"><span style="font-size:22px">I <span style="display:none">&nbsp;</span>am a sample <strong>text</strong></span></p>', NULL, NULL, NULL, NULL, '2017-07-30 04:54:50', '2017-07-30 04:54:50'),
+(2, 'a', '<p>qwqwf df</p>', 0, NULL, 1, NULL, '2017-07-30 05:01:04', '2017-07-30 05:01:04'),
+(3, 'hello', '<h2>this is <s>funny</s></h2>', 0, NULL, 1, NULL, '2017-09-07 13:07:30', '2017-09-07 13:07:30'),
+(4, 'Symptoms, Diagnosis, & Treatment of Chikungunya', '<h2>Symptoms</h2>\r\n\r\n<ul>\r\n	<li>Most people infected with chikungunya virus will develop some symptoms.</li>\r\n	<li>Symptoms usually begin 3&ndash;7 days after being bitten by an infected mosquito.</li>\r\n	<li>The most common symptoms are fever and joint pain.</li>\r\n	<li>Other symptoms may include headache, muscle pain, joint swelling, or rash.</li>\r\n	<li>Chikungunya disease does not often result in death, but the symptoms can be severe and disabling.</li>\r\n	<li>Most patients feel better within a week. In some people, the joint pain may persist for months.</li>\r\n	<li>People at risk for more severe disease include newborns infected around the time of birth, older adults (&ge;65 years), and people with medical conditions such as high blood pressure, diabetes, or heart disease.</li>\r\n	<li>Once a person has been infected, he or she is likely to be protected from future infections.</li>\r\n</ul>\r\n\r\n<h2>Diagnosis</h2>\r\n\r\n<ul>\r\n	<li>The symptoms of chikungunya are similar to those of&nbsp;<a href="http://www.cdc.gov/dengue/">dengue</a>&nbsp;and&nbsp;<a href="https://www.cdc.gov/zika/index.html">Zika</a>, diseases spread by the same mosquitoes that transmit chikungunya.</li>\r\n	<li>See your healthcare provider if you develop the symptoms described above and have visited an area where chikungunya is found.</li>\r\n	<li>If you have recently traveled, tell your healthcare provider when and where you traveled.</li>\r\n	<li>Your healthcare provider may order blood tests to look for chikungunya or other similar viruses like dengue and Zika.</li>\r\n</ul>\r\n\r\n<h2>Treatment</h2>\r\n\r\n<ul>\r\n	<li>There is no vaccine to prevent or medicine to treat chikungunya virus.</li>\r\n	<li>Treat the symptoms:\r\n	<ul>\r\n		<li>Get plenty of rest.</li>\r\n		<li>Drink fluids to prevent dehydration.</li>\r\n		<li>Take medicine such as acetaminophen (Tylenol&reg;) or paracetamol to reduce fever and pain.</li>\r\n		<li>Do not take aspirin and other non-steroidal anti-inflammatory drugs (NSAIDS until dengue can be ruled out to reduce the risk of bleeding).</li>\r\n		<li>If you are taking medicine for another medical condition, talk to your healthcare provider before taking additional medication.</li>\r\n	</ul>\r\n	</li>\r\n	<li>If you have chikungunya,&nbsp;<a href="https://www.cdc.gov/chikungunya/prevention/index.html">prevent mosquito bites</a>&nbsp;for the first week of your illness.\r\n	<ul>\r\n		<li>During the first week of infection, chikungunya virus can be found in the blood and passed from an infected person to a mosquito through mosquito bites.</li>\r\n		<li>An infected mosquito can then spread the virus to other people.</li>\r\n	</ul>\r\n	</li>\r\n</ul>', 0, NULL, 1, NULL, '2017-09-07 13:48:49', '2017-09-07 13:48:49');
 
 -- --------------------------------------------------------
 
@@ -837,7 +841,7 @@ CREATE TABLE `labreports` (
 --
 
 INSERT INTO `labreports` (`id`, `patient_id`, `lab_document`, `created_at`, `updated_at`) VALUES
-(1, '5', '1501219941-06125750.pdf', '2017-07-27 23:32:21', '2017-07-27 23:32:21');
+(2, '5', '1505109726-favicon.ico', '2017-09-11 00:02:06', '2017-09-11 00:02:06');
 
 -- --------------------------------------------------------
 
@@ -2232,6 +2236,13 @@ CREATE TABLE `message` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `sender_id`, `receiver_id`, `message`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '1', '1', 'dhsdh', '2017-09-11 12:05:59', '2017-09-11 12:05:59', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -2509,7 +2520,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `user_id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, 'pollob', 'polboy777@gmail.com', '$2y$10$UTegxdOGD/TNY3cVOGF8xOVwGlR7DH1Ttf6JIfPkEBcD6PRNUQsB2', 'm9YJQ5HU8zex7zHoRBXzTVPrErGemn0rQljhaVOzJzkENfNCc5PKjiEFuEGj', '2017-07-02 12:01:43', '2017-07-02 12:01:43'),
+(1, 1, NULL, 'pollob', 'polboy777@gmail.com', '$2y$10$UTegxdOGD/TNY3cVOGF8xOVwGlR7DH1Ttf6JIfPkEBcD6PRNUQsB2', 'tT7ahSWLiNyPX1kGphyEDGP84Ou8efwSRQ9KdI1Fd9BjBtQYH5WLhvpor8L8', '2017-07-02 12:01:43', '2017-07-02 12:01:43'),
 (4, 2, 4, 'mr. patient', 'patient@a.com', '$2y$10$GKzp8vUapDcKbkTCSCBrNug5m3d2IvWY1jF08L4/z5pBPCjl2cjY2', 'rmtTTFGdhX31n2RFAUD0gSFcrK4NwTVmX5ZYmuqKbri6cxLv6Q9R5V2ylcwg', '2017-07-03 11:27:33', '2017-07-03 11:27:33'),
 (5, 3, 2, 'mr. Doctor', 'doctor@a.com', '$2y$10$iRYfUObkPtQabWi9eYyhGegWYzdINo2yQzDcvA4Am7twJ8vzQD1Tu', '7qxdximGYn9V0YvL9QWiArNQQcWPVJbKnRfXK5pOPoJyedhjupokdTcdDxKI', '2017-07-04 11:39:48', '2017-07-04 11:39:48'),
 (6, 2, 5, 'patient 1', 'p1@a.com', '$2y$10$vV/CATV4BS4S8bZkxuviuu/kkUPtEEjQ7WgQSD3fd7uyGmXR0w2zm', 'DLchFFBKn4lYXUYeqOzNoDkBymCuyxkcHygfVl7YnkaiXYEdLw214YhoUT8Z', '2017-07-24 11:37:49', '2017-07-24 11:37:49'),
@@ -2706,7 +2717,20 @@ INSERT INTO `users_logs` (`id`, `user_id`, `action`, `action_model`, `action_id`
 (167, 5, 'updated', 'users', 5, '2017-07-30 07:45:45', '2017-07-30 07:45:45'),
 (168, 5, 'updated', 'users', 5, '2017-07-30 07:47:08', '2017-07-30 07:47:08'),
 (169, 6, 'updated', 'users', 6, '2017-07-30 07:53:02', '2017-07-30 07:53:02'),
-(170, 1, 'updated', 'users', 1, '2017-07-30 07:54:52', '2017-07-30 07:54:52');
+(170, 1, 'updated', 'users', 1, '2017-07-30 07:54:52', '2017-07-30 07:54:52'),
+(171, 1, 'updated', 'users', 1, '2017-09-06 13:17:30', '2017-09-06 13:17:30'),
+(172, 1, 'updated', 'users', 1, '2017-09-06 13:22:06', '2017-09-06 13:22:06'),
+(173, 1, 'updated', 'users', 1, '2017-09-06 13:34:32', '2017-09-06 13:34:32'),
+(174, 1, 'updated', 'users', 1, '2017-09-06 15:49:55', '2017-09-06 15:49:55'),
+(175, 1, 'updated', 'users', 1, '2017-09-06 16:07:54', '2017-09-06 16:07:54'),
+(176, 1, 'updated', 'users', 1, '2017-09-06 16:13:10', '2017-09-06 16:13:10'),
+(177, 1, 'created', 'healthnews', 3, '2017-09-07 13:07:30', '2017-09-07 13:07:30'),
+(178, 1, 'created', 'healthnews', 4, '2017-09-07 13:48:49', '2017-09-07 13:48:49'),
+(179, 1, 'created', 'bloodbank', 10, '2017-09-10 10:41:24', '2017-09-10 10:41:24'),
+(180, 1, 'created', 'bloodbank', 11, '2017-09-10 10:41:35', '2017-09-10 10:41:35'),
+(181, 1, 'created', 'labreports', 2, '2017-09-11 00:02:06', '2017-09-11 00:02:06'),
+(182, 1, 'created', 'message', 1, '2017-09-11 12:05:59', '2017-09-11 12:05:59'),
+(183, 1, 'deleted', 'labreports', 1, '2017-09-11 12:10:31', '2017-09-11 12:10:31');
 
 -- --------------------------------------------------------
 
@@ -2977,7 +3001,7 @@ ALTER TABLE `approval`
 -- AUTO_INCREMENT for table `bloodbank`
 --
 ALTER TABLE `bloodbank`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `bloodgroup`
 --
@@ -3017,7 +3041,7 @@ ALTER TABLE `documenttype`
 -- AUTO_INCREMENT for table `healthnews`
 --
 ALTER TABLE `healthnews`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `hospital`
 --
@@ -3047,7 +3071,7 @@ ALTER TABLE `labassistant`
 -- AUTO_INCREMENT for table `labreports`
 --
 ALTER TABLE `labreports`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `labtype`
 --
@@ -3072,7 +3096,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -3122,7 +3146,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
 --
 -- AUTO_INCREMENT for table `vaccine`
 --
