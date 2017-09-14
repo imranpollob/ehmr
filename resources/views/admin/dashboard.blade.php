@@ -2,6 +2,7 @@
 
 @section('content')
 
-    {{ trans('quickadmin::admin.dashboard-title') }}
+    <h1>Welcome Admin</h1>
+
 
 @endsection

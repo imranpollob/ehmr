@@ -109,12 +109,14 @@
                 </div>
             </div>
 
+
+        </div>
+
+        <div class="panel-footer">
             <div class="col-sm-offset-1">
                 <button id="add_more_medicine" class="btn btn-primary text">Add More</button>
 
             </div>
-
-
         </div>
     </div>
 
@@ -126,19 +128,33 @@
         </div>
 
         <div class="panel-body diagnosis_div">
-            <div class="form-group diagnosis_field">
-                {!! Form::label('diagnosis_id', 'Diagnosis*', array('class'=>'col-sm-2 control-label')) !!}
-                <div class="col-sm-9">
-                    {!! Form::select('diagnosis_id', $diagnosis, old('diagnosis_id'),
-                    array('class'=>'form-control', 'placeholder'=>'Please Select')) !!}
+            <table id="myTable">
 
-                </div>
-            </div>
+                <tr class="data_row">
+                    <div class="row">
+                        <td>
+                            <div class="form-group">
+                                {!! Form::label('diagnosis_id', 'Diagnosis*', array('class'=>'col-sm-2 control-label')) !!}
+                                <div class="col-sm-10">
+                                    {!! Form::select('diagnosis_id', $diagnosis, old('diagnosis_id'),
+                                    array('class'=>'form-control diagnosis_id', 'placeholder'=>'Please Select')) !!}
 
+                                </div>
+                            </div>
+                        </td>
+
+                    </div>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="panel-footer">
             <div class="col-sm-offset-1">
                 <button id="add_more_diagnosis" class="btn btn-primary">Add More</button>
             </div>
         </div>
+    </div>
 
     {{ Form::hidden('invisible_id', 'secret', array('id' => 'invisible_id')) }}
 
@@ -163,15 +179,14 @@
                 e.preventDefault();
 
 
-
                 return false;
             });
 
             $('#add_more_diagnosis').click(function (e) {
                 e.preventDefault();
 
-                $('.diagnosis_div').append($('.diagnosis_field').html());
-
+                $row = $('#myTable>tbody>tr:nth-child(1)');
+                $('#myTable').append("<tr class=\"data_row\">" + $row.html() + "</tr>");
 
                 return false;
             });
@@ -180,10 +195,11 @@
             $("#create_btn").on("click", function () {
                 var id_qty = [];
 
-                $(".diagnosis_field").each(function () {
+                $(".data_row").each(function () {
 
-                    var id = $(this).closest('tr').find(".diagnosis_id").val();
+                    console.log($(this).find(".diagnosis_id").val());
 
+                    var id = $(this).find(".diagnosis_id").val();
 
                     id_qty.push({
                         "id": id
