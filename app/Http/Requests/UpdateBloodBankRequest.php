@@ -24,8 +24,7 @@ class UpdateBloodBankRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-            'hospital_id' => 'required', 
-            'blood_group' => 'required', 
+            'blood_group' => 'required',
             'count' => 'required', 
             
 		];

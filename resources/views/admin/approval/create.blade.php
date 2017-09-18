@@ -20,7 +20,7 @@
 
 
     <div class="form-group">
-        {!! Form::label('requested_user_id', 'Requested User*', array('class'=>'col-sm-2 control-label')) !!}
+        {!! Form::label('requested_user_id', 'Request To*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
             {!! Form::select('requested_user_id', $data, old('requested_user_id'), array('class'=>'form-control chosen', 'placeholder'=>'Please Select')) !!}
 

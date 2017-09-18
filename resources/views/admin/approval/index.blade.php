@@ -10,7 +10,7 @@
                 <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
             </div>
             <div class="portlet-body">
-                <table class="table table-striped table-hover table-responsive datatable" id="datatable">
+                <table class="table table-hove datatable" id="datatable">
                     <thead>
                     <tr>
                         <th>Requested To</th>

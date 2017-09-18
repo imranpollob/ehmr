@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\BloodGroup;
 use App\Doctor;
 use App\Hospital;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Redirect;

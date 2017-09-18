@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\BloodGroup;
 use App\Hospital;
+use App\HospitalAssistant;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Redirect;
 use Schema;
@@ -71,8 +73,9 @@ class BloodBankController extends Controller {
 	 */
 	public function store(CreateBloodBankRequest $request)
 	{
-	    
-		BloodBank::create($request->all());
+	    $a = $request->all();
+	    $a["hospital_id"] = HospitalAssistant::find(Auth::user()->user_id)->hospital_id;
+		BloodBank::create($a);
 
 		return redirect()->route(config('quickadmin.route').'.bloodbank.index');
 	}

@@ -54,16 +54,9 @@ class MyProfileController extends Controller
 
         }
 
-//        echo $user;
         $obj = json_decode($user, TRUE);
 
-        foreach($obj as $key => $value)
-        {
-            echo $key.'  '.$value."<br>";
-        }
-
-
-//		return view('admin.myprofile.index');
+		return view('admin.myprofile.index', compact('obj'));
     }
 
 }

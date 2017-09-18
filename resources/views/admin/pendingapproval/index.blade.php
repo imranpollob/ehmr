@@ -8,7 +8,7 @@
                 <div class="caption">Pending Approval</div>
             </div>
             <div class="portlet-body">
-                <table class="table table-striped table-hover table-responsive datatable" id="datatable">
+                <table class="table table-hover datatable" id="datatable">
                     <thead>
                     <tr>
                         <th>Requested By</th>
@@ -32,19 +32,14 @@
 
                             </td>
                             <td>
-                                <div class="col-md-6">
                                     {!! Form::open(["route"=>"approve_request", "method"=>"post"])  !!}
                                     {!! Form::hidden("request_id", $row->id) !!}
                                     {!! Form::submit("Approve", ["class"=>"btn btn-primary btn-sm"]) !!}
-                                    {!! Form::close() !!}
-                                </div>
 
-                                <div class="col-md-6">
                                     {!! Form::open(["route"=>"reject_request", "method"=>"post"])  !!}
                                     {!! Form::hidden("request_id", $row->id) !!}
                                     {!! Form::submit("Reject", ["class"=>"btn btn-danger btn-sm"]) !!}
                                     {!! Form::close() !!}
-                                </div>
                             </td>
 
                         </tr>
