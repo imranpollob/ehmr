@@ -33,7 +33,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="projectinput2">Start Date</label>
-                            <input type="text" id="projectinput2" class="form-control">
+                            <input type="text" id="projectinput2" class="form-control datepicker">
                         </div>
                     </div>
                 </div>

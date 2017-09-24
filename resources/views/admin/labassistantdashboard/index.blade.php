@@ -17,7 +17,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.labreports.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -35,7 +35,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.healthnews.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -53,7 +53,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.bloodbank.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">

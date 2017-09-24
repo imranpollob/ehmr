@@ -16,7 +16,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.doctorsprescription.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -34,7 +34,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.doctorassistant.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -52,7 +52,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.patient.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -73,7 +73,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.pendingapproval.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -91,7 +91,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.message.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -109,7 +109,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.bloodbank.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -130,7 +130,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.medicine.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -148,7 +148,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.diagnosis.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -166,7 +166,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.diseases.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -187,7 +187,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.vaccine.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -206,7 +206,7 @@
     </div>
 
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.healthnews.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -216,6 +216,25 @@
                             </div>
                             <div class="media-body text-xs-right">
                                 <h3>Health News</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-xl-4 col-lg-6 col-xs-12">
+        <a href="{{ route('admin.approval.index') }}">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <i class="icon-checkmark pink font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="media-body text-xs-right">
+                                <h3>New Request</h3>
                             </div>
                         </div>
                     </div>

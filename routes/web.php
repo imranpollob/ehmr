@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::get('bloodbank/show/{id}', 'BloodBankController@show');
         Route::get('prescription/show/{id}', 'PrescriptionController@show');
 
+        Route::get('vaccination', 'VaccinationController@index');
         Route::get('vaccination/create', 'VaccinationController@create');
         Route::get('vaccination/single_vaccine', 'VaccinationController@single_vaccine');
 

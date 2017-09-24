@@ -22,7 +22,7 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>Document</th>
+                        <th>#SL</th>@php($i=0)
                         <th>Created by</th>
                         <th>Created at</th>
                         <th>Action</th>
@@ -35,12 +35,12 @@
                             <td>
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
-                            <td>{{ $row->document_id }}</td>
+                            <td>{{ ++$i }}</td>
                             <td>{{ $row->created_by }}</td>
                             <td>{{ $row->created_at }}</td>
                             <td>
                                 <a href="prescription/show/{{$row->id}}" class="btn btn-primary btn-xs">Show</a>
-                                {!! link_to_route(config('quickadmin.route').'.prescription.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                                {{--{!! link_to_route(config('quickadmin.route').'.prescription.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}--}}
                                 {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.prescription.destroy', $row->id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}

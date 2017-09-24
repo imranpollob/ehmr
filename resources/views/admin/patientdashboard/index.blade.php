@@ -16,7 +16,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.prescription.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -34,7 +34,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.labreports.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -73,7 +73,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.labreports.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -82,7 +82,7 @@
                                 <i class="icon-medkit2 blue font-large-2 float-xs-left"></i>
                             </div>
                             <div class="media-body text-xs-right">
-                                <h3>Lab Tests</h3>
+                                <h3>Lab Reports</h3>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="admin/vaccination">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -109,7 +109,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.message.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -130,7 +130,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.healthnews.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -148,7 +148,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.doctor.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -187,7 +187,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.bloodbank.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -205,7 +205,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.pendingapproval.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -214,7 +214,7 @@
                                 <i class="icon-checkmark22 green font-large-2 float-xs-left"></i>
                             </div>
                             <div class="media-body text-xs-right">
-                                <h3>Request Approval</h3>
+                                <h3>Request for Approval</h3>
                             </div>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.approval.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
