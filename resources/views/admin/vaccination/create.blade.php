@@ -49,39 +49,39 @@
 
 
 
-            <div class="card-block">
-                <h4>Available Vaccines</h4>
-                <table class="table table-hover">
-                    <tr>
-                        <th>Name</th>
-                        <th>Action</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td>ROTAVIRUS VACCINE</td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-xs">Details</a>
-                            <a href="#" class="btn btn-success btn-xs">Take</a>
-                        </td>
-                        <td><div class="tag tag-default">Not Taken</div></td>
-                    </tr>
-                    <tr>
-                        <td>HEPATITIS A VACCINE</td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-xs">Details</a>
-                        </td>
-                        <td><div class="tag tag-primary">On-going</div></td>
-                    </tr>
-                    <tr>
-                        <td>TYPHOID VACCINE</td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-xs">Details</a>
-                        </td>
-                        <td><div class="tag tag-success">Taken</div></td>
-                    </tr>
+            {{--<div class="card-block">--}}
+                {{--<h4>Available Vaccines</h4>--}}
+                {{--<table class="table table-hover">--}}
+                    {{--<tr>--}}
+                        {{--<th>Name</th>--}}
+                        {{--<th>Action</th>--}}
+                        {{--<th>Status</th>--}}
+                    {{--</tr>--}}
+                    {{--<tr>--}}
+                        {{--<td>ROTAVIRUS VACCINE</td>--}}
+                        {{--<td>--}}
+                            {{--<a href="#" class="btn btn-info btn-xs">Details</a>--}}
+                            {{--<a href="#" class="btn btn-success btn-xs">Take</a>--}}
+                        {{--</td>--}}
+                        {{--<td><div class="tag tag-default">Not Taken</div></td>--}}
+                    {{--</tr>--}}
+                    {{--<tr>--}}
+                        {{--<td>HEPATITIS A VACCINE</td>--}}
+                        {{--<td>--}}
+                            {{--<a href="#" class="btn btn-info btn-xs">Details</a>--}}
+                        {{--</td>--}}
+                        {{--<td><div class="tag tag-primary">On-going</div></td>--}}
+                    {{--</tr>--}}
+                    {{--<tr>--}}
+                        {{--<td>TYPHOID VACCINE</td>--}}
+                        {{--<td>--}}
+                            {{--<a href="#" class="btn btn-info btn-xs">Details</a>--}}
+                        {{--</td>--}}
+                        {{--<td><div class="tag tag-success">Taken</div></td>--}}
+                    {{--</tr>--}}
 
-                </table>
-            </div>
+                {{--</table>--}}
+            {{--</div>--}}
         </div>
     </div>
 

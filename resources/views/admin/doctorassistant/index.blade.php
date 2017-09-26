@@ -21,8 +21,8 @@
                         <th>Birthday</th>
                         <th>Mobile</th>
                         <th>Address</th>
-                        <th>Blood Group</th>
-                        <th>Doctor</th>
+                        {{--<th>Blood Group</th>--}}
+                        {{--<th>Doctor</th>--}}
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -34,8 +34,8 @@
                             <td>{{ $row->dob }}</td>
                             <td>{{ $row->mobile }}</td>
                             <td>{{ $row->address }}</td>
-                            <td>{{ $row->blood_group }}</td>
-                            <td>{{ $row->doctor_id }}</td>
+                            {{--<td>{{ $row->blood_group }}</td>--}}
+                            {{--<td>{{ $row->doctor_id }}</td>--}}
 
                             <td>
                                 {!! link_to_route(config('quickadmin.route').'.doctorassistant.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}

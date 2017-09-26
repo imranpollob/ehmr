@@ -2,6 +2,9 @@
 
 @section('content')
 
+    <p>{!! link_to_route(config('quickadmin.route').'.approval.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
+
+
     @if ($data->count())
         <div class="portlet box green">
             <div class="portlet-title">
@@ -32,14 +35,14 @@
 
                             </td>
                             <td>
-                                    {!! Form::open(["route"=>"approve_request", "method"=>"post"])  !!}
-                                    {!! Form::hidden("request_id", $row->id) !!}
-                                    {!! Form::submit("Approve", ["class"=>"btn btn-primary btn-sm"]) !!}
+                                {!! Form::open(["route"=>"approve_request", "method"=>"post"])  !!}
+                                {!! Form::hidden("request_id", $row->id) !!}
+                                {!! Form::submit("Approve", ["class"=>"btn btn-primary btn-sm"]) !!}
 
-                                    {!! Form::open(["route"=>"reject_request", "method"=>"post"])  !!}
-                                    {!! Form::hidden("request_id", $row->id) !!}
-                                    {!! Form::submit("Reject", ["class"=>"btn btn-danger btn-sm"]) !!}
-                                    {!! Form::close() !!}
+                                {!! Form::open(["route"=>"reject_request", "method"=>"post"])  !!}
+                                {!! Form::hidden("request_id", $row->id) !!}
+                                {!! Form::submit("Reject", ["class"=>"btn btn-danger btn-sm"]) !!}
+                                {!! Form::close() !!}
                             </td>
 
                         </tr>

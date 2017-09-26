@@ -52,7 +52,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.prescribedmedicine.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">

@@ -23,7 +23,7 @@
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
                         <th>#SL</th>@php($i=0)
-                        <th>Created by</th>
+                        <th>Creator ID</th>
                         <th>Created at</th>
                         <th>Action</th>
                     </tr>

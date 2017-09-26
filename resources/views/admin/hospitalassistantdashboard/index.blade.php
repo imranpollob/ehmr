@@ -16,7 +16,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.vaccine.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -34,7 +34,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.medicine.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -52,7 +52,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.diseases.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -73,7 +73,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.diagnosis.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -91,7 +91,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.patient.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -109,7 +109,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.doctor.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -130,7 +130,7 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.bloodbank.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">
@@ -148,7 +148,7 @@
         </a>
     </div>
     <div class="col-xl-4 col-lg-6 col-xs-12">
-        <a href="#">
+        <a href="{{ route('admin.healthnews.index') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="card-block">

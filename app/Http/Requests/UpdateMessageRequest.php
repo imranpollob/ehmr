@@ -24,8 +24,7 @@ class UpdateMessageRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-            'sender_id' => 'required', 
-            'receiver_id' => 'required', 
+            'receiver_id' => 'required',
             'message' => 'required', 
             
 		];

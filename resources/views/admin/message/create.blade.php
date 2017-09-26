@@ -18,17 +18,17 @@
 
     {!! Form::open(array('route' => config('quickadmin.route').'.message.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
 
-    <div class="form-group">
-        {!! Form::label('sender_id', 'Sender*', array('class'=>'col-sm-2 control-label')) !!}
-        <div class="col-sm-10">
-            {!! Form::text('sender_id', old('sender_id'), array('class'=>'form-control')) !!}
+    {{--<div class="form-group">--}}
+        {{--{!! Form::label('sender_id', 'Sender*', array('class'=>'col-sm-2 control-label')) !!}--}}
+        {{--<div class="col-sm-10">--}}
+            {{--{!! Form::text('sender_id', old('sender_id'), array('class'=>'form-control')) !!}--}}
 
-        </div>
-    </div>
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="form-group">
         {!! Form::label('receiver_id', 'Receiver*', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            {!! Form::text('receiver_id', old('receiver_id'), array('class'=>'form-control')) !!}
+            {!! Form::select('receiver_id', $user, old('receiver_id'), array('class'=>'form-control')) !!}
 
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <div class="row">
         <div class="card">
             <div class="card-header">
@@ -10,6 +11,7 @@
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
                         <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                        <li><button onclick="window.print();" class="btn btn-default"><i class="icon-print"></i></button></li>
                     </ul>
                 </div>
             </div>
@@ -91,3 +93,4 @@
     </div>
 
 @endsection
+

@@ -89,26 +89,78 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-block">
-                    <div class="row">
+
+                    <div class="row m1">
                         <div class="form-group">
 
                             {!! Form::label('medicine_id', 'Medicine', array('class'=>'col-sm-2 control-label')) !!}
                             <div class="col-sm-3">
-                                {!! Form::Select('medicine_id', $medicine, old('medicine_id'),
+                                {!! Form::Select('medicine_id1', $medicine, old('medicine_id'),
                                 array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
 
                             </div>
 
                             {!! Form::label('schedule_id', 'Schedule', array('class'=>'col-sm-1 control-label')) !!}
                             <div class="col-sm-3">
-                                {!! Form::select('schedule_id', $medicine_schedule, old('schedule_id'),
+                                {!! Form::select('schedule_id1', $medicine_schedule, old('schedule_id'),
                                 array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
 
                             </div>
 
                             {!! Form::label('days', 'Days', array('class'=>'col-sm-1 control-label')) !!}
                             <div class="col-sm-1">
-                                {!! Form::number('days', old('days'), array('class'=>'form-control')) !!}
+                                {!! Form::number('days1', old('days'), array('class'=>'form-control')) !!}
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row m2">
+                        <div class="form-group">
+
+                            {!! Form::label('medicine_id', 'Medicine', array('class'=>'col-sm-2 control-label')) !!}
+                            <div class="col-sm-3">
+                                {!! Form::Select('medicine_id2', $medicine, old('medicine_id'),
+                                array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
+
+                            </div>
+
+                            {!! Form::label('schedule_id', 'Schedule', array('class'=>'col-sm-1 control-label')) !!}
+                            <div class="col-sm-3">
+                                {!! Form::select('schedule_id2', $medicine_schedule, old('schedule_id'),
+                                array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
+
+                            </div>
+
+                            {!! Form::label('days', 'Days', array('class'=>'col-sm-1 control-label')) !!}
+                            <div class="col-sm-1">
+                                {!! Form::number('days2', old('days'), array('class'=>'form-control')) !!}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row m3">
+                        <div class="form-group">
+
+                            {!! Form::label('medicine_id', 'Medicine', array('class'=>'col-sm-2 control-label')) !!}
+                            <div class="col-sm-3">
+                                {!! Form::Select('medicine_id3', $medicine, old('medicine_id'),
+                                array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
+
+                            </div>
+
+                            {!! Form::label('schedule_id', 'Schedule', array('class'=>'col-sm-1 control-label')) !!}
+                            <div class="col-sm-3">
+                                {!! Form::select('schedule_id3', $medicine_schedule, old('schedule_id'),
+                                array('class'=>'form-control chosen', "placeholder"=>"Please Select")) !!}
+
+                            </div>
+
+                            {!! Form::label('days', 'Days', array('class'=>'col-sm-1 control-label')) !!}
+                            <div class="col-sm-1">
+                                {!! Form::number('days3', old('days'), array('class'=>'form-control')) !!}
 
                             </div>
 
@@ -134,18 +186,46 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-block">
-                    <div class="row">
+                    <div class="row d1">
                         <div class="form-group">
 
                             {!! Form::label('diagnosis_id', 'Diagnosis', array('class'=>'col-sm-2 control-label')) !!}
                             <div class="col-sm-10">
-                                {!! Form::select('diagnosis_id', $diagnosis, old('diagnosis_id'),
+                                {!! Form::select('diagnosis_id1', $diagnosis, old('diagnosis_id'),
                                 array('class'=>'form-control chosen', 'placeholder'=>'Please Select')) !!}
 
                             </div>
 
                         </div>
                     </div>
+
+                    <div class="row d2">
+                        <div class="form-group">
+
+                            {!! Form::label('diagnosis_id', 'Diagnosis', array('class'=>'col-sm-2 control-label')) !!}
+                            <div class="col-sm-10">
+                                {!! Form::select('diagnosis_id2', $diagnosis, old('diagnosis_id'),
+                                array('class'=>'form-control chosen', 'placeholder'=>'Please Select')) !!}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row d3">
+                        <div class="form-group">
+
+                            {!! Form::label('diagnosis_id', 'Diagnosis', array('class'=>'col-sm-2 control-label')) !!}
+                            <div class="col-sm-10">
+                                {!! Form::select('diagnosis_id3', $diagnosis, old('diagnosis_id'),
+                                array('class'=>'form-control chosen', 'placeholder'=>'Please Select')) !!}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
 
                     <div class="row">
                         <div class="form-group">
@@ -177,9 +257,22 @@
 @section('javascript')
     <script type="text/javascript">
         $(document).ready(function () {
+
+            $('.m2').hide();
+            $('.m3').hide();
+
+            $('.d2').hide();
+            $('.d3').hide();
+
+            $m=2;
+            $d=2;
+
             $('#add_more_medicine').click(function (e) {
                 e.preventDefault();
 
+                $('.m'+$m).show();
+
+                ++$m;
 
                 return false;
             });
@@ -187,37 +280,39 @@
             $('#add_more_diagnosis').click(function (e) {
                 e.preventDefault();
 
-                $('.diagnosis_div').append($('.diagnosis_field').html());
 
+                $('.d'+$d).show();
+
+                ++$d;
 
                 return false;
             });
 
 
             $("#create_btn").on("click", function () {
-                var id_qty = [];
+//                var id_qty = [];
+//
+//                $(".diagnosis_field").each(function () {
+//
+//                    var id = $(this).closest('tr').find(".diagnosis_id").val();
+//
+//
+//                    id_qty.push({
+//                        "id": id
+//                    })
+//
+//                });
+//
+//                $('#invisible_id').val(JSON.stringify(id_qty)); //store array
+//
+//                console.log($("#invisible_id").val());
+//
+//                if (Object.keys(id_qty).length == 0) {
+//                    alert("No item is selected!");
+//                    return false;
+//                }
 
-                $(".diagnosis_field").each(function () {
-
-                    var id = $(this).closest('tr').find(".diagnosis_id").val();
-
-
-                    id_qty.push({
-                        "id": id
-                    })
-
-                });
-
-                $('#invisible_id').val(JSON.stringify(id_qty)); //store array
-
-                console.log($("#invisible_id").val());
-
-                if (Object.keys(id_qty).length == 0) {
-                    alert("No item is selected!");
-                    return false;
-                }
-
-                return false;
+                return true;
 
             });
 

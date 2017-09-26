@@ -16,6 +16,8 @@
                                         <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
                                         <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
                                         <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                        <li><button onclick="window.print();" class="btn btn-default"><i class="icon-print"></i></button></li>
+
                                     </ul>
                                 </div>
                             </div>

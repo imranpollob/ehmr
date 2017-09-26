@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Redirect;
 use Schema;
 use App\Message;
@@ -24,8 +26,9 @@ class MessageController extends Controller {
 	public function index(Request $request)
     {
         $message = Message::all();
+        $user = User::pluck('name', 'id');
 
-		return view('admin.message.index', compact('message'));
+		return view('admin.message.index', compact('message','user'));
 	}
 
 	/**
@@ -35,9 +38,9 @@ class MessageController extends Controller {
 	 */
 	public function create()
 	{
+	    $user = User::pluck('name','id');
 	    
-	    
-	    return view('admin.message.create');
+	    return view('admin.message.create', compact('user'));
 	}
 
 	/**
@@ -47,8 +50,10 @@ class MessageController extends Controller {
 	 */
 	public function store(CreateMessageRequest $request)
 	{
-	    
-		Message::create($request->all());
+	    $a = $request->all();
+	    $a['sender_id'] = Auth::id();
+
+		Message::create($a);
 
 		return redirect()->route(config('quickadmin.route').'.message.index');
 	}

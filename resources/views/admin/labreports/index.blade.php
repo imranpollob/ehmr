@@ -16,7 +16,7 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>Patient</th>
+                        <th>#SL</th>@php($i=0)
                         <th>Document</th>
 
                         <th>&nbsp;</th>
@@ -29,7 +29,7 @@
                             <td>
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
-                            <td>{{ $row->patient_id }}</td>
+                            <td>{{ ++$i }}</td>
                             {{--<td>{{ $row->lab_document }}</td>--}}
                             <td><a href="{{ asset('public/uploads') . '/'.  $row->lab_document }}" download >{{ $row->lab_document }}</a></td>
 

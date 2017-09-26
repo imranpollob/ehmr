@@ -57,18 +57,18 @@
                 </table>
             </div>
 
-            <div class="card-block">
-                <h4>Did you take this scheduled vaccine?</h4>
+            {{--<div class="card-block">--}}
+                {{--<h4>Did you take this scheduled vaccine?</h4>--}}
 
-                <table class="table">
-                    <tr>
-                        <th>RABIES VACCINE</th>
-                        <th>18-09-2017</th>
-                        <th><button class="btn btn-success btn-xs">Yes</button></th>
-                    </tr>
+                {{--<table class="table">--}}
+                    {{--<tr>--}}
+                        {{--<th>RABIES VACCINE</th>--}}
+                        {{--<th>18-09-2017</th>--}}
+                        {{--<th><button class="btn btn-success btn-xs">Yes</button></th>--}}
+                    {{--</tr>--}}
 
-                </table>
-            </div>
+                {{--</table>--}}
+            {{--</div>--}}
         </div>
 	</div>
 
